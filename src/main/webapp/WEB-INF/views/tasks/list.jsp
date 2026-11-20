@@ -21,6 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>タスク一覧 | BEYOND TIGER HD TASKMANAGER</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/rainbow.css">
 </head>
 <body>
 

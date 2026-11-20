@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+:root {
+    --bg: #0b0b12;
+    --surface: #151520;
+    --surface2: #1d1d2a;
+    --text: #f4f4fa;
+    --muted: #a5a5b8;
+    --rainbow: linear-gradient(110deg,#ff4d6d,#ff9f43,#ffe066,#4ade80,#38bdf8,#818cf8,#c084fc,#f472b6);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(255,77,109,.13), transparent 40%),
+        radial-gradient(ellipse at 100% 0%, rgba(129,140,248,.14), transparent 40%),
+        radial-gradient(ellipse at 50% 100%, rgba(74,222,128,.08), transparent 50%),
+        var(--bg);
+    color: var(--text);
+    font-family: Inter, "Noto Sans JP", sans-serif;
+    line-height: 1.7;
+    padding: 32px 20px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--rainbow);
+    z-index: 1000;
+}
+
+header, main {
+    width: min(100%, 1000px);
+    margin: 0 auto 28px;
+}
+
+header {
+    background: rgba(21,21,32,.88);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    padding: 28px 32px;
+    box-shadow: 0 12px 50px rgba(0,0,0,.25);
+}
+
+header h1, body > h1 {
+    background: var(--rainbow);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: clamp(1.4rem, 4vw, 2.3rem);
+    font-weight: 900;
+    letter-spacing: -.04em;
+}
+
+main {
+    background: rgba(21,21,32,.92);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    padding: clamp(20px,4vw,36px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+
+h2 {
+    font-size: 1.65rem;
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-weight: 800;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: var(--rainbow);
+}
+
+p { color: var(--muted); }
+
+a {
+    color: #c4b5fd;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+a:hover { color: #fff; }
+
+form {
+    margin: 16px 0;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #d8d8e8;
+    font-weight: 600;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: var(--surface2);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167,139,250,.15);
+}
+
+textarea { resize: vertical; }
+
+button {
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--rainbow);
+    color: #11111a;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s, filter .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(192,132,252,.25);
+    filter: brightness(1.08);
+}
+
+main > p > a, header a {
+    display: inline-block;
+    margin: 5px 5px 5px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 24px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+th, td {
+    padding: 15px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+th {
+    background: var(--surface2);
+    color: #e9e4ff;
+    font-weight: 700;
+}
+
+td { color: #d7d7e5; }
+
+tbody tr {
+    background: rgba(255,255,255,.015);
+    transition: background .2s;
+}
+
+tbody tr:hover { background: rgba(255,255,255,.045); }
+
+td form { margin: 4px 0; }
+
+td button {
+    padding: 8px 12px;
+    font-size: .9rem;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 24px;
+}
+
+nav a, nav strong {
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--surface2);
+}
+
+nav strong {
+    background: var(--rainbow);
+    color: #11111a;
+}
+
+body > h1 {
+    text-align: center;
+}
+
+main > form:first-of-type {
+    background: var(--surface2);
+    padding: 18px;
+    border-radius: 16px;
+}
+
+@media (max-width: 700px) {
+    body { padding: 24px 12px; }
+
+    header, main {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    button { max-width: 100%; }
+
+    h2 { font-size: 1.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
+
+
+/* ===== FULL SPECTRUM TASK LIST ===== */
+
+main:has(table) {
+    width: min(100%, 1200px);
+}
+
+main:has(table) table {
+    border: 0;
+    border-spacing: 0 12px;
+    border-collapse: separate;
+}
+
+main:has(table) thead th {
+    background: transparent;
+    color: #aaaac0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+main:has(table) tbody tr {
+    background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+}
+
+main:has(table) tbody td {
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+main:has(table) tbody td:first-child {
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(to bottom,#ff4d6d,#ff9f43,#ffe066,#4ade80,#38bdf8,#818cf8,#c084fc,#f472b6) 1;
+    font-weight: 700;
+}
+
+main:has(table) tbody tr:hover {
+    background: linear-gradient(110deg,rgba(255,77,109,.08),rgba(56,189,248,.08),rgba(192,132,252,.08));
+}
+
+main:has(table) td form {
+    display: inline-block;
+    margin: 3px;
+}
+
+main:has(table) td button {
+    font-size: .82rem;
+    padding: 8px 12px;
+}
+
+main:has(table) td a {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 10px;
+    background: rgba(129,140,248,.12);
+}
+
+main:has(table) td button[type="submit"] {
+    background: linear-gradient(135deg,#38bdf8,#818cf8);
+    color: #101018;
+}
+
+main:has(table) td form[action*="delete"] button {
+    background: linear-gradient(135deg,#ff4d6d,#f472b6);
+}
+
+main:has(table) td form[action*="copy"] button {
+    background: linear-gradient(135deg,#4ade80,#38bdf8);
+}
+
+main:has(table) > form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+main:has(table) > form input,
+main:has(table) > form select {
+    flex: 1;
+    min-width: 180px;
+}
+
+main:has(table) > form button {
+    flex-shrink: 0;
+}
+
+main:has(table) > p > a[href*="create"] {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 14px;
+    background: var(--rainbow);
+    color: #11111a;
+    font-weight: 800;
+    box-shadow: 0 8px 30px rgba(192,132,252,.15);
+}
+
+@media(max-width:700px) {
+    main:has(table) > form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
