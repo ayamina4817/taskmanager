@@ -1,0 +1,8 @@
+FROM tomcat:10.1-jdk21
+
+RUN rm -rf /usr/local/tomcat/webapps/*
+COPY target/taskmanager.war /usr/local/tomcat/webapps/ROOT.war
+
+EXPOSE 10000
+
+CMD ["sh", "-c", "sed -i 's/port=\"8080\"/port=\"10000\"/' /usr/local/tomcat/conf/server.xml && catalina.sh run"]
